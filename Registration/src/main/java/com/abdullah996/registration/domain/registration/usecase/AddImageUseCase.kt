@@ -10,15 +10,14 @@ class AddImageUseCase
         suspend operator fun invoke(
             image: String,
             id: Long,
-        )  {
+        ) {
             validateUserImagePath(image)
             repo.addUserImage(image, id)
         }
 
-        private fun validateUserImagePath(imagePath: String)  {
-            if (imagePath.isEmpty())
-                {
-                    throw InvalidImageException("Invalid image path")
-                }
+        private fun validateUserImagePath(imagePath: String) {
+            if (imagePath.isEmpty()) {
+                throw InvalidImageException("Invalid image path")
+            }
         }
     }

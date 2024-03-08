@@ -47,4 +47,11 @@ class RegistrationRepoImplTest {
             verify(dataSource, times(1)).registerUser(mockedUserEntity)
             assertEquals(1L, result)
         }
+
+    @Test
+    fun `test RegistrationRepo given imagePath and userId when invoke addUserImage then invoke datasource and success`() =
+        runTest {
+            registrationRepoImpl.addUserImage("imagePath", 1L)
+            verify(dataSource, times(1)).saveUserImage("imagePath", 1L)
+        }
 }

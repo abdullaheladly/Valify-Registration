@@ -42,4 +42,11 @@ class RegistrationLocalDataSourceTest {
             verify(dao, times(1)).insertUser(mockedUserEntity)
             Assert.assertEquals(1L, result)
         }
+
+    @Test
+    fun `test RegistrationLocalDataSource given imagePath and userId when invoke addUserImage then invoke DAO and success `() =
+        runTest {
+            registrationLocalDataSource.saveUserImage("imagePath", 1L)
+            verify(dao, times(1)).updateUserImage(1L, "imagePath")
+        }
 }
