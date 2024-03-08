@@ -1,11 +1,10 @@
 package com.abdullah996.registration.domain.registration.usecase
 
-
 import com.abdullah996.registration.domain.registration.exception.EmptyFieldException
 import com.abdullah996.registration.domain.registration.model.UserDomainModel
 import com.abdullah996.registration.domain.registration.repo.RegistrationRepo
 
-class RegisterUseCase(private val repo: RegistrationRepo){
+class RegisterUseCase(private val repo: RegistrationRepo) {
     suspend operator fun invoke(userDomainModel: UserDomainModel): Long {
         validateInputs(userDomainModel)
         return repo.registerUser(userDomainModel)

@@ -5,5 +5,5 @@ data class UserDomainModel(
     val phoneNumber: String,
     val email: String,
     val password: String,
-    val userImage:String?
+    val userImage: String?,
 )
