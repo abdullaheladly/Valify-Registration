@@ -20,6 +20,12 @@ class RegisterStepTwoViewModel
         private val addImageUseCase: AddImageUseCase,
         @IoDispatcher private val defaultDispatcher: CoroutineDispatcher,
     ) : ViewModel() {
+        private val coroutineExceptionHandler =
+            CoroutineExceptionHandler { _, e ->
+                viewModelScope.launch(defaultDispatcher) {
+                    onFailure(e)
+                }
+            }
 
         private val mScreenState = MutableSharedFlow<RegisterStepTwoViewState>()
         val screenState = mScreenState.asSharedFlow()
@@ -28,5 +34,20 @@ class RegisterStepTwoViewModel
             imagePath: String,
             id: Long,
         ) {
+            viewModelScope.launch(coroutineExceptionHandler + defaultDispatcher) {
+                addImageUseCase.invoke(imagePath, id)
+                mScreenState.emit(RegisterStepTwoViewState.Navigate)
+            }
+        }
+
+        suspend fun onFailure(throwable: Throwable) {
+            when (throwable) {
+                is InvalidImageException -> {
+                    mScreenState.emit(RegisterStepTwoViewState.OnError(throwable.message))
+                }
+                else -> {
+                    mScreenState.emit(RegisterStepTwoViewState.OnError(throwable.message.toString()))
+                }
+            }
         }
     }

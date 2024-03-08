@@ -22,7 +22,7 @@ class RegisterStepOneViewModel
         private val registerUseCase: RegisterUseCase,
         @IoDispatcher private val defaultDispatcher: CoroutineDispatcher,
     ) : ViewModel() {
-        private val argumentsExceptionHandlerHandler =
+        private val coroutineExceptionHandler =
             CoroutineExceptionHandler { _, e ->
                 viewModelScope.launch(defaultDispatcher) {
                     onFailure(e)
@@ -40,7 +40,7 @@ class RegisterStepOneViewModel
         val screenState = mScreenState.asSharedFlow()
 
         fun registerUser() {
-            viewModelScope.launch(argumentsExceptionHandlerHandler + defaultDispatcher) {
+            viewModelScope.launch(coroutineExceptionHandler + defaultDispatcher) {
                 val userEntity =
                     UserDomainModel(
                         username = username.value,

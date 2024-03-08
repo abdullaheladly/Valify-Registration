@@ -44,7 +44,7 @@ class RegisterStepTwoViewModelTest {
     }
 
     @Test
-    fun `test registerStepTwoViewModel given invalid inputs when invoke addUserImage throw InvalidImageException emits in screen states error`() =
+    fun `test registerStepTwoViewModel when invoke addUserImage throw InvalidImageException emits in screen states error`() =
         runTest {
             whenever(useCase.invoke("", 1L)).doAnswer {
                 throw EmptyFieldException("")
