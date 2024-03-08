@@ -8,6 +8,5 @@ import com.abdullah996.registration.data.registration.model.UserEntity
 @Dao
 interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertUser(userEntity: UserEntity) : Long
-
+    suspend fun insertUser(userEntity: UserEntity): Long
 }

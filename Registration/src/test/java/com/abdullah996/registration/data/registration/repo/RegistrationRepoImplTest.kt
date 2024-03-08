@@ -25,7 +25,7 @@ class RegistrationRepoImplTest {
     lateinit var dataSource: RegistrationDataSource
 
     @Before
-    fun setup()  {
+    fun setup() {
         registrationRepoImpl = RegistrationRepoImpl(dataSource, UsersMapper())
     }
 
