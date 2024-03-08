@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.abdullah996.registration.databinding.FragmentRegistrationStepOneBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -44,10 +45,8 @@ class RegistrationStepOneFragment : Fragment() {
                         binding.progressBar.visibility = View.GONE
                     }
                     is RegisterStepOneViewState.Navigate -> {
-                        Toast.makeText(requireContext(), "navigate", Toast.LENGTH_SHORT).show()
-                        /***
-                         * navigate
-                         */
+                        val action=RegistrationStepOneFragmentDirections.actionRegistrationStepOneFragmentToRegisterStepTwoFragment(it.id)
+                        findNavController().navigate(action)
                     }
                     is RegisterStepOneViewState.OnError -> {
                         binding.progressBar.visibility = View.GONE

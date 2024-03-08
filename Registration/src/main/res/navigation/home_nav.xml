@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_nav"
     app:startDestination="@id/registrationStepOneFragment">
 
     <fragment
         android:id="@+id/registrationStepOneFragment"
         android:name="com.abdullah996.registration.presentation.registrationStepOne.RegistrationStepOneFragment"
-        android:label="RegistrationStepOneFragment" />
+        android:label="RegistrationStepOneFragment" >
+        <action
+            android:id="@+id/action_registrationStepOneFragment_to_registerStepTwoFragment"
+            app:destination="@id/registerStepTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerStepTwoFragment"
+        android:name="com.abdullah996.registration.presentation.registrationStepTwo.RegisterStepTwoFragment"
+        android:label="fragment_register_step_two"
+        tools:layout="@layout/fragment_register_step_two" >
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
 </navigation>
