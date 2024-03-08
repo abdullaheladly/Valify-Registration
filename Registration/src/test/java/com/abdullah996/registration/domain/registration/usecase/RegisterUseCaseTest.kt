@@ -69,7 +69,7 @@ class RegisterUseCaseTest {
 
             whenever(registrationRepo.registerUser(mockedUser)).thenReturn(1L)
             val result=registerUseCase.invoke(mockedUser)
-            verify(registrationRepo, times(0)).registerUser(mockedUser)
+            verify(registrationRepo, times(1)).registerUser(mockedUser)
             Assert.assertEquals(result,1L)
         }
 
