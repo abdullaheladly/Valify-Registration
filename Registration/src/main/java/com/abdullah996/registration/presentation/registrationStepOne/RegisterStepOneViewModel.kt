@@ -54,7 +54,7 @@ class RegisterStepOneViewModel
             }
         }
 
-        private suspend fun onFailure(throwable: Throwable)  {
+        private suspend fun onFailure(throwable: Throwable) {
             when (throwable) {
                 is EmptyFieldException -> {
                     mScreenState.emit(RegisterStepOneViewState.OnError(throwable.message))

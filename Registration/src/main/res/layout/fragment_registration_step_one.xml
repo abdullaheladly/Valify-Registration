@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.abdullah996.registration.presentation.registrationStepOne.RegisterStepOneViewModel" />
+    </data>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".presentation.registeration.registerStep1.RegisterFragment">
+
+
+
+        <EditText
+            android:inputType="text"
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/username"
+            android:text="@={viewModel.username}"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/etPhoneNumber"
+            android:layout_width="match_parent"
+            android:inputType="phone"
+            android:text="@={viewModel.phoneNumber}"
+            android:layout_height="wrap_content"
+            android:hint="@string/phone_number"
+            app:layout_constraintTop_toBottomOf="@+id/etUsername"
+            android:layout_marginTop="16dp"/>
+
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:text="@={viewModel.email}"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            app:layout_constraintTop_toBottomOf="@+id/etPhoneNumber"
+            android:layout_marginTop="16dp"
+            />
+
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:text="@={viewModel.password}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            app:layout_constraintTop_toBottomOf="@+id/etEmail"
+            android:layout_marginTop="16dp"
+            android:inputType="textPassword"/>
+
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            app:layout_constraintTop_toBottomOf="@+id/etPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"/>
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:visibility="gone"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
