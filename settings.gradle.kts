@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ValifyRegistrationTask"
 include(":app")
- 
+include(":Registration")
