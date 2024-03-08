@@ -27,7 +27,6 @@ import org.mockito.kotlin.whenever
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
 class RegisterStepOneViewModelTest {
-
     private val testDispatcher = UnconfinedTestDispatcher()
 
     @get:Rule
@@ -42,7 +41,7 @@ class RegisterStepOneViewModelTest {
     lateinit var useCase: RegisterUseCase
 
     @Before
-    fun setup()  {
+    fun setup() {
         registerStepOneViewModel = RegisterStepOneViewModel(useCase, testDispatcher)
     }
 
