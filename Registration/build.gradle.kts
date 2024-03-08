@@ -64,9 +64,17 @@ dependencies {
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
 
+    // navigation and data binding
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
-
     implementation("androidx.databinding:databinding-runtime:8.3.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+
+    // camera and analyzer
+    implementation("androidx.camera:camera-core:1.3.2")
+    implementation("androidx.camera:camera-camera2:1.3.2")
+    implementation("androidx.camera:camera-lifecycle:1.3.2")
+    implementation("androidx.camera:camera-view:1.3.2")
+    implementation("com.google.mlkit:face-detection:16.1.6")
+    implementation("com.google.android.gms:play-services-mlkit-face-detection:17.1.0")
 }

@@ -45,7 +45,7 @@ class RegistrationStepOneFragment : Fragment() {
                         binding.progressBar.visibility = View.GONE
                     }
                     is RegisterStepOneViewState.Navigate -> {
-                        val action=RegistrationStepOneFragmentDirections.actionRegistrationStepOneFragmentToRegisterStepTwoFragment(it.id)
+                        val action = RegistrationStepOneFragmentDirections.actionRegistrationStepOneFragmentToRegisterStepTwoFragment(it.id)
                         findNavController().navigate(action)
                     }
                     is RegisterStepOneViewState.OnError -> {
