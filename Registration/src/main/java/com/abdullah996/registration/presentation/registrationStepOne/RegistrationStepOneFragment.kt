@@ -36,7 +36,7 @@ class RegistrationStepOneFragment : Fragment() {
         return binding.root
     }
 
-    private fun handleScreenStates()  {
+    private fun handleScreenStates() {
         lifecycleScope.launch {
             registerStepOneViewModel.screenState.collectLatest {
                 when (it) {
