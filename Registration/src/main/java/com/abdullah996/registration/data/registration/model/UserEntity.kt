@@ -11,5 +11,5 @@ data class UserEntity(
     val phoneNumber: String,
     val email: String,
     val password: String,
-    val userImagePath:String?
+    val userImagePath: String?,
 )
