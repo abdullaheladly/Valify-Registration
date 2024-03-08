@@ -14,5 +14,6 @@ class RegistrationLocalDataSource
             image: String,
             id: Long,
         ) {
+            return dao.updateUserImage(id, image)
         }
     }

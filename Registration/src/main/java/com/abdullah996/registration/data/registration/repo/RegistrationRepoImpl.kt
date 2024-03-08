@@ -17,5 +17,6 @@ class RegistrationRepoImpl
             image: String,
             id: Long,
         ) {
+            return dataSource.saveUserImage(image, id)
         }
     }
