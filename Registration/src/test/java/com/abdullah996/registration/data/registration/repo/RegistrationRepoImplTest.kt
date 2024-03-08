@@ -16,7 +16,6 @@ import org.mockito.kotlin.times
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 
-
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
 class RegistrationRepoImplTest {
@@ -26,8 +25,8 @@ class RegistrationRepoImplTest {
     lateinit var dataSource: RegistrationDataSource
 
     @Before
-    fun setup(){
-        registrationRepoImpl= RegistrationRepoImpl(dataSource, UsersMapper())
+    fun setup()  {
+        registrationRepoImpl = RegistrationRepoImpl(dataSource, UsersMapper())
     }
 
     @Test
@@ -44,10 +43,8 @@ class RegistrationRepoImplTest {
                     userImagePath = null,
                 )
             whenever(dataSource.registerUser(mockedUserEntity)).thenReturn(1L)
-            val result =registrationRepoImpl.registerUser(mockedUserDomainModel)
+            val result = registrationRepoImpl.registerUser(mockedUserDomainModel)
             verify(dataSource, times(1)).registerUser(mockedUserEntity)
-            assertEquals(1L,result)
-
-
-    }
+            assertEquals(1L, result)
+        }
 }

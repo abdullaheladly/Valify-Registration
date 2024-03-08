@@ -6,13 +6,16 @@ import com.abdullah996.registration.domain.registration.model.UserDomainModel
 import com.abdullah996.registration.domain.registration.repo.RegistrationRepo
 import javax.inject.Inject
 
-class RegistrationRepoImpl @Inject constructor(private val dataSource: RegistrationDataSource,mapper: UsersMapper) : RegistrationRepo {
-    override suspend fun registerUser(userDomainModel: UserDomainModel): Long {
-        return 0L
+class RegistrationRepoImpl
+    @Inject
+    constructor(private val dataSource: RegistrationDataSource, private val mapper: UsersMapper) : RegistrationRepo {
+        override suspend fun registerUser(userDomainModel: UserDomainModel): Long {
+            return dataSource.registerUser(mapper.mapUserDomainModelToUserEntity(userDomainModel))
+        }
+
+        override suspend fun addUserImage(
+            image: String,
+            id: Long,
+        ) {
+        }
     }
-
-    override suspend fun addUserImage(image: String, id: Long) {
-
-    }
-
-}
